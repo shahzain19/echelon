@@ -1,6 +1,6 @@
 # Echelon - Premium E-commerce Store
 
-A modern, production-ready e-commerce platform built with Next.js 15, Convex, and TypeScript. Features a premium white design aesthetic with full admin capabilities and customer order tracking.
+A modern, production-ready e-commerce platform built with Next.js 16, Convex, and TypeScript. Features a premium white design aesthetic with full admin capabilities and customer order tracking.
 
 ## 🚀 Features
 
