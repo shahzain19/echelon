@@ -36,6 +36,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# convex
+# convex - keep _generated for deployment
 .convex/
-convex/_generated/
+# convex/_generated/ - COMMENTED OUT so it's pushed to git for Vercel
