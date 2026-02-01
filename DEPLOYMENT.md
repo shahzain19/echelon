@@ -4,12 +4,19 @@
 
 Your Echelon store is ready to deploy to Vercel!
 
+## � Important: Convex Generated Files
+
+The `convex/_generated/` folder is now included in git for Vercel deployment. This folder contains the auto-generated API types that your app needs to build.
+
+**Note:** After any Convex schema changes, run `npx convex dev` locally to regenerate these files, then commit and push them.
+
 ## 📋 Pre-Deployment Checklist
 
 - [x] Build passes locally (`npm run build`)
 - [x] All TypeScript errors resolved
 - [x] Old pages directory removed
 - [x] Convex functions configured
+- [x] Convex generated files committed to git
 - [ ] Environment variables ready
 - [ ] Admin credentials updated
 
@@ -26,13 +33,9 @@ npx convex deploy
 This will give you a production Convex URL like:
 `https://your-project.convex.cloud`
 
-### 2. Push to GitHub
+### 2. Already Pushed to GitHub ✅
 
-```bash
-git add .
-git commit -m "Ready for production"
-git push origin main
-```
+The generated files are now in your repository.
 
 ### 3. Deploy to Vercel
 
@@ -67,6 +70,20 @@ NEXT_PUBLIC_CONVEX_URL=https://your-production-url.convex.cloud
 After adding environment variables, trigger a new deployment:
 - Go to Deployments tab
 - Click "Redeploy" on the latest deployment
+
+## � Workflow for Schema Changes
+
+When you update your Convex schema:
+
+1. Run `npx convex dev` locally
+2. Convex will regenerate the `_generated` files
+3. Commit and push the changes:
+   ```bash
+   git add convex/_generated/
+   git commit -m "Update Convex schema"
+   git push
+   ```
+4. Vercel will automatically redeploy
 
 ## 🔒 Security Checklist
 
@@ -123,6 +140,9 @@ Visit your Vercel URL and test:
 
 ### Build Fails on Vercel
 
+**Issue**: Module not found errors for `convex/_generated/api`
+**Solution**: ✅ Fixed! The generated files are now in git
+
 **Issue**: TypeScript errors
 **Solution**: Run `npm run build` locally first to catch errors
 
@@ -169,7 +189,7 @@ git push origin main
 
 Vercel will automatically deploy the changes.
 
-## 📈 Scaling Considerations
+## � Scaling Considerations
 
 ### When You Grow:
 1. **Database Indexes**: Add indexes for frequently queried fields
@@ -212,3 +232,4 @@ Need help? Check:
 - [Next.js Docs](https://nextjs.org/docs)
 - [Vercel Docs](https://vercel.com/docs)
 - [Convex Docs](https://docs.convex.dev)
+
